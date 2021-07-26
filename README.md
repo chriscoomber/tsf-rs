@@ -23,11 +23,11 @@ an issue for the ones you need, and a maintainer will look at it if they have ti
 You must install clang to build this crate, even if it's just as a dependency. This is necessary because the bindings are generated during the build step using
 `bindgen` which requires an installation of clang. See https://rust-lang.github.io/rust-bindgen/requirements.html.
 
-## Linkage to the TinySoundFont library
+## Linking to the TinySoundFont library
 
-TinySoundFont is distributed as a header file. This crate includes a static library compiled from that header file, 
+TinySoundFont is distributed as a [header file](https://github.com/schellingb/TinySoundFont/blob/master/tsf.h). This crate includes a static library compiled from that header file, 
 which makes it incredibly convenient to use - you don't need to do anything special.
 
-If you are already using a library built from TinySoundFont and would like to link this crate library, this is currently
-not possible. However, it's possible in theory with a few feature flags, so feel free to submit a pull request (you will 
+If you are already using a library built from TinySoundFont and would like to link this crate to that library, this is currently
+not possible. However, it's possible in theory, with a few feature flags, so feel free to submit a pull request (you will 
 need to make changes to tsf-sys).
