@@ -20,7 +20,7 @@ an issue for the ones you need, and a maintainer will look at it if they have ti
 
 ## Build machine requirements
 
-You must install clang to build this crate, even if it's just as a dependency. This is necessary because the bindings are generated during the build step using
+You must install clang to build this crate, even if you are just using it as a dependency of another crate. This is necessary because the bindings are generated during the build step using
 `bindgen` which requires an installation of clang. See https://rust-lang.github.io/rust-bindgen/requirements.html.
 
 ## Linking to the TinySoundFont library
