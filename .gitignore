@@ -1,0 +1,7 @@
+target/
+Cargo.lock
+test_outputs/
+
+# IntelliJ generated files
+*.iml
+/.idea
