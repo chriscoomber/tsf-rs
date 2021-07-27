@@ -1,4 +1,7 @@
-# tsf-sys
+# tsf-sys &emsp; [![Latest Version]][crates.io] 
+
+[Latest Version]: https://img.shields.io/crates/v/tsf-sys.svg
+[crates.io]: https://crates.io/crates/tsf-sys
 
 Unsafe rust bindings for [TinySoundFont](https://github.com/schellingb/TinySoundFont/). Don't use this crate directly, 
 instead use `tsf` which has more user-friendly bindings.
