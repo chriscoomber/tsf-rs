@@ -1,9 +1,11 @@
-# tsf
+# rust bindings for [TinySoundFont](https://github.com/schellingb/TinySoundFont/) &emsp; [![Latest Version]][crates.io] 
 
-Rust bindings for [TinySoundFont](https://github.com/schellingb/TinySoundFont/). This is a software synthesizer for 
-SoundFont2 sound bank files.
+[Latest Version]: https://img.shields.io/crates/v/tsf.svg
+[crates.io]: https://crates.io/crates/tsf
 
-Essentially this library can render audio data in 32-bit float or 16-bit (short) int frames. It renders that audio using
+TinySoundFont is a software synthesizer for SoundFont2 sound bank files.
+
+Essentially it can render audio data in 32-bit float or 16-bit (short) int frames. It renders that audio using
 a loaded soundfont and programmatically-driven note information (soundfont bank and preset, MIDI note number and 
 velocity; and optionally understands MIDI channels). 
 
