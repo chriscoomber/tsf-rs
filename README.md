@@ -20,16 +20,11 @@ Only some functions in `tsf.h` have nice bindings here. It is a work in progress
 difficult based on the ones that have already been done, so feel free to submit a PR with the ones you need! (Or, submit
 an issue for the ones you need, and a maintainer will look at it if they have time.)
 
-## Build machine requirements
+## Build requirements
 
-You must install clang to build this crate, even if you are just using it as a dependency of another crate. This is necessary because the bindings are generated during the build step using
-`bindgen` which requires an installation of clang. See https://rust-lang.github.io/rust-bindgen/requirements.html.
+Unfortunately, this library comes with some non-standard build requirements, due to the fact that `tsf-sys` uses both
+[cc](https://crates.io/crates/cc) and [bindgen](https://crates.io/crates/bindgen). This means that you will need to do
+some extra setup, even just if this is a dependency (or a dependency of a dependency...).
 
-## Linking to the TinySoundFont library
 
-TinySoundFont is distributed as a [header file](https://github.com/schellingb/TinySoundFont/blob/master/tsf.h). This crate includes a static library compiled from that header file, 
-which makes it incredibly convenient to use - you don't need to do anything special.
-
-If you are already using a library built from TinySoundFont and would like to link this crate to that library, this is currently
-not possible. However, it's possible in theory, with a few feature flags, so feel free to submit a pull request (you will 
-need to make changes to tsf-sys).
+See the [README for tsf-sys](https://crates.io/crates/tsf-sys) for more information.
