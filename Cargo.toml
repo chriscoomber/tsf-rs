@@ -1,6 +1,6 @@
 [package]
 name = "tsf"
-version = "0.1.0"
+version = "0.1.1"
 description = "Safe interface for TinySoundFont, a software synthesizer for SoundFont2 files"
 categories = ["api-bindings", "multimedia::audio"]
 keywords = ["TinySoundFont", "midi", "SoundFont2", "sf2", "audio"]
@@ -12,7 +12,7 @@ edition = "2018"
 include = ["/src/**/*", "/test_resources/**/*", "/Cargo.toml", "/README.md"]
 
 [dependencies.tsf-sys]
-version = "0.1.0"
+version = "0.1.1"
 path = "tsf-sys"
 
 [workspace]
