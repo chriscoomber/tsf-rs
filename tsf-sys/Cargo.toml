@@ -10,6 +10,7 @@ readme = "README.md"
 repository = "https://github.com/chriscoomber/tsf-rs"
 edition = "2018"
 include = ["/src/**/*", "/test_resources/**/*", "/Cargo.toml", "/README.md", "/build.rs", "/wrapper.h", "/tsf_src/**/*"]
+links = "tsf"
 
 [dependencies]
 
