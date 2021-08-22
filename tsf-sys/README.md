@@ -66,6 +66,7 @@ compile `mylib` against the target `armv7-linux-androideabi`. Suppose `mylib` pr
 [target.armv7-linux-androideabi]
 linker = "C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\armv7a-linux-androideabi21-clang.cmd"
 ar = "C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\arm-linux-androideabi-ar"
+# Note that for this target specifically, the `ar` doesn't include the v7a but of the target. Just a quirk of the NDK.
 ```
 
 4. Set the following environment variables (you can either paste this into your command prompt, or set them more 
@@ -73,7 +74,7 @@ ar = "C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_6
 
 ```
 set CC_armv7-linux-androideabi=C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\armv7a-linux-androideabi21-clang.cmd
-set AR_armv7-linux-androideabi=C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\armv7a-linux-androideabi-ar 
+set AR_armv7-linux-androideabi=C:\\path\\to\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\arm-linux-androideabi-ar 
 ```
 
 5. Follow the bindgen requirements above, including setting the `LIBCLANG_PATH` environment variable.
