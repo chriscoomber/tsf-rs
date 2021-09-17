@@ -6,9 +6,10 @@ include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use std::ffi::{c_void, CString};
     use std::os::raw::c_int;
+
+    use super::*;
 
     const MINIMAL_SOUND_FONT: &'static [u8] = &[
         b'R',b'I',b'F',b'F',220,1,0,0,b's',b'f',b'b',b'k',

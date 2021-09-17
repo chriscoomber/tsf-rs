@@ -37,6 +37,9 @@ pub struct Tsf {
     output_mode: Option<OutputMode>
 }
 
+unsafe impl Send for Tsf {}
+unsafe impl Sync for Tsf {}
+
 impl Drop for Tsf {
     fn drop(&mut self) {
         unsafe { tsf_close(self.tsf_ptr) };
@@ -53,19 +56,20 @@ impl Tsf {
 
     /// Load from a filename of a soundfont (.sf2) file.
     // TODO: Should really take a path or something like that
-    pub fn load_filename<T: Into<Vec<u8>>>(filename: T) -> Tsf {
+    // TODO: Should really return a result
+    pub fn load_filename<T: Into<Vec<u8>>>(filename: T) -> Option<Tsf> {
         let filename_cstring = CString::new(filename).expect("filename wasn't a valid C string - did it have an internal 0 byte?");
         let tsf_ptr: *mut tsf = unsafe { tsf_load_filename(filename_cstring.as_ptr()) };
-        Tsf::new(tsf_ptr)
+        if tsf_ptr.is_null() { None } else { Some(Tsf::new(tsf_ptr)) }
     }
 
     /// Load from memory.
-    pub fn load_memory<T: Into<Vec<u8>>>(buffer: T) -> Tsf {
+    pub fn load_memory<T: Into<Vec<u8>>>(buffer: T) -> Option<Tsf> {
         let vec = buffer.into();
-        let tsf_ptr: *mut tsf = unsafe { tsf_load_memory(
-            vec.as_ptr() as *const c_void,
-            vec.len() as c_int) };
-        Tsf::new(tsf_ptr)
+        let tsf_ptr: *mut tsf = unsafe {
+            tsf_load_memory(vec.as_ptr() as *const c_void, vec.len() as c_int)
+        };
+        if tsf_ptr.is_null() { None } else { Some(Tsf::new(tsf_ptr)) }
     }
 
     /// Free the memory related to this TSF instance.
@@ -152,7 +156,7 @@ mod tests {
 
     #[test]
     fn load_filename_and_render_c3() {
-        let mut tsf = Tsf::load_filename("test_resources/sinewave.sf2");
+        let mut tsf = Tsf::load_filename("test_resources/sinewave.sf2").unwrap();
 
         assert_eq!(1, tsf.get_preset_count());
 
